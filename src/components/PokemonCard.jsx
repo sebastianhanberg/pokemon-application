@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios';
 
+
 function PokemonCard() {
 
     const [pokemonName, setPokemonName] = useState('');
@@ -22,7 +23,7 @@ function PokemonCard() {
             .then((res) => {
                 setPokemon({ 
                     name: pokemonName, 
-                    img: res.data.sprites.front_default, 
+                    img: res.data.sprites.other.dream_world.front_default, 
                     hp: res.data.stats[0].base_stat,
                     attack: res.data.stats[1].base_stat,
                     defense: res.data.stats[2].base_stat,
@@ -50,8 +51,8 @@ function PokemonCard() {
                 (<h1>Please choose a Pokémon</h1>) : 
                 (
                 <>
-                <h1>{pokemon.name}</h1>
-                <img className='w-[250px]' src={pokemon.img}/>
+                <h1 className='text-3xl font-bold'>{pokemon.name}</h1>
+                <img className='w-[150px] m-10' src={pokemon.img}/>
                 <h3>Type: {pokemon.type}</h3>
                 <h4>HP: {pokemon.hp}</h4>
                 <h4>Attack: {pokemon.attack}</h4>
