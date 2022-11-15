@@ -8,6 +8,7 @@ module.exports = {
     colors: {
       'pokemon-yellow': '#ffcb05',
       'pokemon-blue': '#5db9ff',
+      'white': '#fafafa'
     }
   },
   plugins: [],
