@@ -18,7 +18,6 @@ function PokemonCard() {
     });
 
     const searchPokemon = () => {
-
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
             .then((res) => {
                 setPokemon({ 
@@ -32,36 +31,54 @@ function PokemonCard() {
                 setPokemonChosen(true);
             })
     }
+
+
+    const handleChange = (e) => {
+        setPokemonName(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        searchPokemon(); 
+    }
+   
+
     return (
-        <div className=''>
-            <div className='w-full h-80 bg-pokemon-yellow flex flex-col justify-center items-center'>
+
+    <div className=''>
+
+        {/* SEARCHBAR */}
+        <div className='w-full h-80 bg-pokemon-yellow flex flex-col justify-center items-center'>
             <h1 className="text-4xl m-5">Pokemon Stats</h1>
+            <form onSubmit={handleSubmit}>
             <input
-                className="border-none outline-none bg-white rounded-md p-2 m-2"
-                type="text"
-                onChange={(e) => { setPokemonName(e.target.value) }}
-            />
-            <button
-                onClick={searchPokemon}
-                className="text-md bg-pokemon-blue text-black rounded-lg p-3 m-5 cursor-pointer">Search Pokemon
-            </button>
-            </div>
-            <div className='w-full h-full bg-pokemon-yellow flex flex-col justify-center items-center'>
+                className="text-sm border-none outline-none bg-white rounded-md p-2 m-2"
+                type="search"
+                placeholder='Search for a pokemon..'
+                onChange={handleChange}
+                />
+            </form>
+        </div>
+
+       
+
+        {/* POKEMON CARD */}
+        <div className='w-full h-full bg-pokemon-yellow flex flex-col justify-center items-center'>
                 {!pokemonChosen ? 
                 (<h1>Please choose a Pokémon</h1>) : 
                 (
                 <>
                 <h1 className='text-3xl font-bold'>{pokemon.name}</h1>
-                <img className='w-[150px] m-10' src={pokemon.img}/>
+                <img className='w-[150px] m-10' src={pokemon.img} alt=""/>
                 <h3>Type: {pokemon.type}</h3>
                 <h4>HP: {pokemon.hp}</h4>
                 <h4>Attack: {pokemon.attack}</h4>
                 <h4>Defense: {pokemon.defense}</h4>
                 </>
                 )}
-            </div>
-
         </div>
+
+    </div>
     )
 }
 
