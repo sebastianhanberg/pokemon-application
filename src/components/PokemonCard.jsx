@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
+import {FiSearch} from 'react-icons/fi'
 
 
 function PokemonCard() {
@@ -23,6 +24,7 @@ function PokemonCard() {
             });
             setLoading(true)
             setPokemonChosen(true);
+           
         })
     }
 
@@ -54,6 +56,7 @@ function PokemonCard() {
                     type: res.data.types[0].type.name,
                 });
                 setPokemonChosen(true);
+                
             })
     }
 
@@ -73,28 +76,33 @@ function PokemonCard() {
     return (
 
     <div className=''>
-
         {/* SEARCHBAR */}
-        <div className='w-full h-80 bg-pokemon-yellow flex flex-col justify-center items-center'>
-            <h1 className="text-2xl m-5">Random Pokémon Generator</h1>
-            <form onSubmit={handleSubmit}>
+        <div className='w-full flex flex-col justify-center items-center'>
+            <form className="" onSubmit={handleSubmit}>
+            
+            <div className="flex flex-row justify-start items-center">
+                    
+            <span><FiSearch className='position-absolute w-5 h-5'/></span>
             <input
-                className="text-sm border-none outline-none bg-white rounded-md p-2 m-2"
+                className="w-full text-base border-none outline-none rounded-md p-3 m-3"
                 type="search"
+                id='search-field'
                 placeholder='Search for a pokemon..'
                 onChange={handleChange}
                 />
+                </div>
             </form>
         </div>
+
 
        
 
         {/* POKEMON CARD */}
-        <div className='w-full h-full bg-pokemon-yellow flex flex-col justify-center items-center'>
+        <div className='w-full h-full flex flex-col justify-center items-center'>
                 {!pokemonChosen ? 
                 (<>
-                    <h1 className='text-2xl font-bold'>{randomPokemon.name}</h1>
                     <img className='w-[150px] m-10' src={randomPokemon.img} alt=""/>
+                    <h1 className='text-2xl font-bold m-5'>{randomPokemon.name}</h1>
                     <h3>Type: {randomPokemon.type}</h3>
                     <h4>HP: {randomPokemon.hp}</h4>
                     <h4>Attack: {randomPokemon.attack}</h4>
@@ -102,8 +110,8 @@ function PokemonCard() {
                     </>) : 
                 (
                 <>
-                <h1 className='text-3xl font-bold'>{pokemon.name}</h1>
                 <img className='w-[150px] m-10' src={pokemon.img} alt=""/>
+                <h1 className='text-3xl font-bold m-5'>{pokemon.name}</h1>
                 <h3>Type: {pokemon.type}</h3>
                 <h4>HP: {pokemon.hp}</h4>
                 <h4>Attack: {pokemon.attack}</h4>
