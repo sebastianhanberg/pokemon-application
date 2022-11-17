@@ -1,12 +1,15 @@
 import './App.css';
 import PokemonCard from './components/PokemonCard';
-import { useState } from "react"; // import state
+import { useState } from "react"; 
 import pokeball from './assets/pokeball.png'
 import PokemonLogo from './assets/pokemonlogo.png'
 
 function App() {
-  const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
+
+  const [isNavOpen, setIsNavOpen] = useState(false); 
+
   return (
+
     <div className="App">
       <div className="flex items-center bg-pokemon-yellow justify-between py-8">
       <a href="/">

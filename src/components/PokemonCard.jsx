@@ -75,16 +75,18 @@ function PokemonCard() {
 
     return (
 
+
     <div className='bg-pokemon-yellow'>
+
         {/* SEARCHBAR */}
-        <div className='w-[240px] flex flex-col border border-black border-opacity-40 rounded-lg p-2 ml-5'>
+        <div className='w-[240px] flex flex-col border bg-light-yellow border-black border-opacity-40 rounded-lg p-2 ml-5'>
             <form className="" onSubmit={handleSubmit}>
             
             <div className="flex flex-row justify-start items-center">
                     
-            <span><FiSearch className='opacity-80 w-5 h-5 mr-2'/></span>
+            <span><FiSearch className='opacity-90 w-5 h-5 mr-2'/></span>
             <input
-                className="text-base border-none outline-none bg-pokemon-yellow opacity-90 placeholder-black"
+                className="text-base border-none outline-none bg-light-yellow opacity-90 placeholder-black"
                 type="search"
                 id='search-field'
                 placeholder='Search for a pokemon..'
@@ -95,27 +97,38 @@ function PokemonCard() {
         </div>
 
 
-       
-
+    
         {/* POKEMON CARD */}
         <div className='w-full h-full flex flex-col justify-center items-center'>
                 {!pokemonChosen ? 
                 (<>
                     <img className='w-[150px] m-10' src={randomPokemon.img} alt=""/>
                     <h1 className='text-2xl font-bold m-5'>{randomPokemon.name}</h1>
-                    <h3>Type: {randomPokemon.type}</h3>
-                    <h4>HP: {randomPokemon.hp}</h4>
-                    <h4>Attack: {randomPokemon.attack}</h4>
-                    <h4>Defense: {randomPokemon.defense}</h4>
+                    <p>Type: {randomPokemon.type}</p>
+                    <p>HP: {randomPokemon.hp}</p>
+                    <p>Attack: {randomPokemon.attack}</p>
+                    <p>Defense: {randomPokemon.defense}</p>
                     </>) : 
                 (
                 <>
-                <img className='w-[150px] m-10' src={pokemon.img} alt=""/>
-                <h1 className='text-3xl font-bold m-5'>{pokemon.name}</h1>
-                <h3>Type: {pokemon.type}</h3>
-                <h4>HP: {pokemon.hp}</h4>
-                <h4>Attack: {pokemon.attack}</h4>
-                <h4>Defense: {pokemon.defense}</h4>
+                <div className='flex flex-col justify-center items-center mt-48'>     
+                    <div className='bg-gradient-to-r from-white to-light-yellow rounded-xl shadow-md h-96 flex flex-col relative w-72 flex-shrink-0'>            
+                            <img className='absolute w-[250px] justify-center pl-10 items-center top-0 transform -translate-y-1/2' src={pokemon.img} alt=""/>
+                        <div className='flex justify-center items center'>
+                            <h1 className='text-3xl font-bold mt-40'>{pokemon.name}</h1>
+                        </div>
+                <div className='flex flex-row'>
+                        <div className="flex flex-col justify-between p-5 text-sm">
+                            <p className='border rounded-lg p-1 bg-gray-light mb-2'><span className='font-bold'>Type: </span> {pokemon.type}</p>
+                            <p className='border rounded-lg p-1 bg-gray-light'><span className='font-bold'>Attack: </span>{pokemon.attack}</p>
+                        </div>
+                        <div className="flex flex-col justify-between p-5 text-sm">
+                            <p className='border rounded-lg p-1 bg-gray-light'><span className='font-bold'>HP: </span>{pokemon.hp}</p>
+                            <p className='border rounded-lg p-1 bg-gray-light'><span className='font-bold'>Defense: </span>{pokemon.defense}</p>
+                        </div>
+                    </div>
+                </div>   
+                </div>
                 </>
                 )}
         </div>
