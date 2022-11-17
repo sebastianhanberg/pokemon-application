@@ -75,16 +75,16 @@ function PokemonCard() {
 
     return (
 
-    <div className=''>
+    <div className='bg-pokemon-yellow'>
         {/* SEARCHBAR */}
-        <div className='w-full flex flex-col justify-center items-center'>
+        <div className='w-[240px] flex flex-col border border-black border-opacity-40 rounded-lg p-2 ml-5'>
             <form className="" onSubmit={handleSubmit}>
             
             <div className="flex flex-row justify-start items-center">
                     
-            <span><FiSearch className='position-absolute w-5 h-5'/></span>
+            <span><FiSearch className='opacity-80 w-5 h-5 mr-2'/></span>
             <input
-                className="w-full text-base border-none outline-none rounded-md p-3 m-3"
+                className="text-base border-none outline-none bg-pokemon-yellow opacity-90 placeholder-black"
                 type="search"
                 id='search-field'
                 placeholder='Search for a pokemon..'
