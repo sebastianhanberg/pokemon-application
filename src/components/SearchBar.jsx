@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from "react";
 
 import { FiSearch } from "react-icons/fi";
 
-import { getPokemonApi } from "./pokeApi.js";
+import { getPokemonApi } from "../utils/pokeApi.js";
 
 function SearchBar() {
   const { pokemon, setPokemon } = useContext(PokeContext);
@@ -43,14 +43,14 @@ function SearchBar() {
   return (
     <div>
       {/* SEARCHBAR */}
-      <div className="w-[240px] flex flex-col border bg-light-yellow border-black border-opacity-40 rounded-lg p-2 ml-5">
+      <div className="w-[240px] flex flex-col borderborder-none bg-gray-light outline-none rounded-sm p-2 mb-4">
         <form className="" onSubmit={handleSubmit}>
           <div className="flex flex-row justify-start items-center">
             <span>
-              <FiSearch className="opacity-90 w-5 h-5 mr-2" />
+              <FiSearch className="opacity-90 w-5 h-5 mr-2 text-gray-medium" />
             </span>
             <input
-              className="text-base border-none outline-none bg-light-yellow opacity-90 placeholder-black"
+              className="text-base border-none outline-none placeholder-gray-medium bg-gray-light"
               type="search"
               id="search-field"
               placeholder="Search for a pokemon.."

@@ -4,7 +4,7 @@ import {
   getPokemonApi,
   getPokemonSpecies,
   getPokemonEvolutions,
-} from "./pokeApi.js";
+} from "../utils/pokeApi.js";
 import PokemonCard from "./PokemonCard.jsx";
 import { PokeContext } from "../utils/pokeContext.js";
 
@@ -21,6 +21,7 @@ function Details() {
 
   const location = useLocation();
   const { pokemon, setPokemon } = useContext(PokeContext);
+
   useEffect(() => {
     console.log("pokemon: ", pokemon);
     const id = location.pathname.split("/")[2];

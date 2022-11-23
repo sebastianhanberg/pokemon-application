@@ -12,7 +12,12 @@ module.exports = {
       'white': '#fafafa',
       'black': '#000000',
       'gray-dark': '#242424',
-      'gray-light': '#d3d3d3'
+      'gray-medium': '#71716F',
+      'gray-light': '#ececec',
+      'gray-superlight': '#f5f5f5'
+    },
+    fontFamily: {
+      sans: ['Roboto Condensed', 'sans-serif'],
     }
   },
   plugins: [],

@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import { useState } from 'react'
 import { PokeContext } from "./utils/pokeContext";
 import Details from './components/Details';
+import Footer from './components/Footer'
 
 
 
@@ -15,12 +16,13 @@ function App() {
 
   return (
     <PokeContext.Provider value={{pokemon, setPokemon}}>
-    <div className="App">      
+    <div className="App bg-gradient-to-r from-gray-superlight to-white">      
       <Navbar />
         <Routes>
           <Route path="/" element={<PokemonCard/>}/>
           <Route path="/details/:id" element={<Details/>}/> 
-        </Routes>      
+        </Routes>
+        <Footer/>      
     </div>
     </PokeContext.Provider>
   );
