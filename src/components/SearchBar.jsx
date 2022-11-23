@@ -43,7 +43,7 @@ function SearchBar() {
   return (
     <div>
       {/* SEARCHBAR */}
-      <div className="w-[240px] flex flex-col borderborder-none bg-gray-light outline-none rounded-sm p-2 mb-4">
+      <div className="w-[300px] flex flex-col borderborder-none bg-gray-light outline-none rounded-md p-2 mb-4">
         <form className="" onSubmit={handleSubmit}>
           <div className="flex flex-row justify-start items-center">
             <span>

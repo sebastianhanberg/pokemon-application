@@ -16,7 +16,7 @@ function App() {
 
   return (
     <PokeContext.Provider value={{pokemon, setPokemon}}>
-    <div className="App bg-gradient-to-r from-gray-superlight to-white">      
+    <div className="App bg-[url('./assets/pokemon-bg.jpg')] bg-cover">      
       <Navbar />
         <Routes>
           <Route path="/" element={<PokemonCard/>}/>

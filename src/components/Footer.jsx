@@ -3,11 +3,13 @@ import pokeball from "../assets/pokeball.png";
 
 function Footer() {
   return (
-    <div className="flex flex-col bg-gradient-to-r from-gray-superlight to-white w-full justify-center items-center mt-50 p-10">
-      <p className="text-lg mb-4 text-gray-dark">Get a new random Pokémon</p>
+    <div className="flex flex-col w-full justify-center items-center p-10">
       <a href="/">
         <img className="w-24" src={pokeball} alt="" />
       </a>
+      <p className="text-xl font-bold text-gray-light">
+        Get a new random Pokémon
+      </p>
     </div>
   );
 }

@@ -18,7 +18,10 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Roboto Condensed', 'sans-serif'],
-    }
+    },
+    backgroundImage: {
+      'App': "url('./assets/pokemon-bg.jpg')",
+    },
   },
   plugins: [],
 }

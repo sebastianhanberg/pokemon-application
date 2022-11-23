@@ -11,10 +11,10 @@ function PokemonCard() {
   return (
     <>
       {pokemon && (
-        <div className="bg-gradient-to-r from-gray-superlight to-white">
+        <div className="">
           <div className="w-full h-full flex flex-col justify-center items-center">
-            <div className="flex flex-col justify-center items-center mt-48">
-              <div className="bg-gradient-to-r from-gray-superlight to-light-yellow border border-black rounded-xl shadow-md h-96 flex flex-col relative w-72 flex-shrink-0">
+            <div className="flex flex-col justify-center items-center mt-36">
+              <div className="bg-light-yellow border border-black rounded-xl shadow-md h-96 flex flex-col relative w-72 flex-shrink-0">
                 <img
                   className="absolute w-[250px] justify-center pl-10 items-center top-0 transform -translate-y-1/2"
                   src={pokemon.img}
@@ -47,7 +47,7 @@ function PokemonCard() {
                 <div className="flex justify-center items-center">
                   {!location.pathname.includes("details") && (
                     <Link
-                      className="text-lg font-bold"
+                      className="text-lg text-gray-dark font-bold"
                       to={`/details/${pokemon.id}`}
                     >
                       Go to Details
