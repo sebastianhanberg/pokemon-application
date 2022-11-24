@@ -17,7 +17,7 @@ module.exports = {
       'gray-superlight': '#f5f5f5'
     },
     fontFamily: {
-      sans: ['Roboto Condensed', 'sans-serif'],
+      sans: ['Dosis', 'sans-serif'],
     },
     backgroundImage: {
       'App': "url('./assets/pokemon-bg.jpg')",

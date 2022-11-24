@@ -1,9 +1,7 @@
 import React from "react";
 import { PokeContext } from "../utils/pokeContext";
 import { useContext, useState, useEffect } from "react";
-
 import { FiSearch } from "react-icons/fi";
-
 import { getPokemonApi } from "../utils/pokeApi.js";
 
 function SearchBar() {
@@ -16,13 +14,17 @@ function SearchBar() {
     console.log("searchPokemon: ", pokeNameOrId);
     getPokemonApi(pokeNameOrId).then((res) => {
       setPokemon({
-        name: res.data.forms[0].name,
+        name:
+          res.data.forms[0].name.charAt(0).toUpperCase() +
+          res.data.forms[0].name.slice(1),
         id: res.data.id,
         img: res.data.sprites.other.dream_world.front_default,
         hp: res.data.stats[0].base_stat,
         attack: res.data.stats[1].base_stat,
         defense: res.data.stats[2].base_stat,
-        type: res.data.types[0].type.name,
+        type:
+          res.data.types[0].type.name.charAt(0).toUpperCase() +
+          res.data.types[0].type.name.slice(1),
       });
     });
   };
@@ -37,7 +39,7 @@ function SearchBar() {
   };
 
   const handleChange = (e) => {
-    setPokemonName(e.target.value);
+    setPokemonName(e.target.value.toLowerCase());
   };
 
   return (
@@ -50,10 +52,10 @@ function SearchBar() {
               <FiSearch className="opacity-90 w-5 h-5 mr-2 text-gray-medium" />
             </span>
             <input
-              className="text-base border-none outline-none placeholder-gray-medium bg-gray-light"
+              className="w-full text-base border-none outline-none placeholder-gray-medium bg-gray-light"
               type="search"
               id="search-field"
-              placeholder="Search for a pokemon.."
+              placeholder="Search for a Pokémon by name.."
               onChange={handleChange}
             />
           </div>

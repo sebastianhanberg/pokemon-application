@@ -14,9 +14,6 @@ function Navbar() {
         </a>
       </div>
       <div className="flex flex-col lg:flex-col justify-center items-center lg:items-start lg:justify-between lg:mr-20">
-        <p className="text-lg mb-4 text-gray-dark">
-          Search for a Pokémon by name
-        </p>
         {!location.pathname.includes("details") && <SearchBar />}
       </div>
     </div>
