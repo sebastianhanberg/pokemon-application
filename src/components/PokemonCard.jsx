@@ -27,7 +27,7 @@ function PokemonCard() {
                 </h1>
                 <p className="text-sm ml-5">Pokémon id #{pokemon.id}</p>
 
-                <div className="flex flex-col shadow-lg">
+                <div className=" flex flex-col">
                   <div className="flex flex-col justify-between p-5 text-sm">
                     <p className="mb-2">
                       <span className="font-bold">Type: </span> {pokemon.type}
@@ -45,18 +45,18 @@ function PokemonCard() {
                       <span className="font-bold">Defense: </span>
                       {pokemon.defense}
                     </p>
-                  </div>
-                  <div className="flex flex-row justify-center items-center">
-                    {!location.pathname.includes("details") && (
-                      <Link
-                        className="text-lg text-gray-dark font-bold flex flex-row"
-                        to={`/details/${pokemon.id}`}
-                      >
-                        <p className="">Go to Details</p>
+                    <div className="flex flex-row justify-center items-center">
+                      {!location.pathname.includes("details") && (
+                        <Link
+                          className="text-lg text-gray-dark font-bold flex flex-row"
+                          to={`/details/${pokemon.id}`}
+                        >
+                          <p className="">Go to Details</p>
 
-                        <GoArrowRight className="mt-1 pt-1 ml-2" />
-                      </Link>
-                    )}
+                          <GoArrowRight className="mt-1 pt-1 ml-2" />
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -3,8 +3,8 @@ import pokeball from "../assets/pokeball1.png";
 
 function Footer() {
   return (
-    <div className="flex flex-col w-full justify-center items-center p-10">
-      <a href="/">
+    <div className=" w-full p-10">
+      <a className="flex justify-center items-center mb-10" href="/">
         <img className="w-32" src={pokeball} alt="" />
       </a>
     </div>
