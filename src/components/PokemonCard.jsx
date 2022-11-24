@@ -27,20 +27,22 @@ function PokemonCard() {
                 </h1>
                 <p className="text-sm ml-5">Pokémon id #{pokemon.id}</p>
 
-                <div className=" flex flex-col">
-                  <div className="flex flex-col justify-between p-5 text-sm">
+                <div className="flex flex-col">
+                  <p className="ml-5 mt-2">Base Stats</p>
+                  <div className="flex flex-col justify-between ml-5 mt-2 text-sm">
                     <p className="mb-2">
-                      <span className="font-bold">Type: </span> {pokemon.type}
+                      <span className="font-bold">Type: </span>
+                      <span className="">{pokemon.type}</span>
+                    </p>
+                    <p className="mb-2">
+                      <span className="font-bold">HP: </span>
+                      {pokemon.hp}
                     </p>
                     <p className="mb-2">
                       <span className="font-bold">Attack: </span>
                       {pokemon.attack}
                     </p>
 
-                    <p className="mb-2">
-                      <span className="font-bold">HP: </span>
-                      {pokemon.hp}
-                    </p>
                     <p className="mb-2">
                       <span className="font-bold">Defense: </span>
                       {pokemon.defense}
