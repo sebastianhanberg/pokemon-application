@@ -13,7 +13,7 @@ function Navbar() {
         </a>
       </div>
       <div className="flex flex-col lg:flex-col justify-center items-center lg:items-start lg:justify-between lg:mr-20">
-        {!location.pathname.includes("details") && <SearchBar />}
+        <SearchBar />
       </div>
     </div>
   );
