@@ -5,9 +5,9 @@ import { FiSearch } from "react-icons/fi";
 import { getPokemonApi } from "../utils/pokeApi.js";
 
 function SearchBar() {
-  const { pokemon, setPokemon } = useContext(PokeContext);
+  const { setPokemon } = useContext(PokeContext);
 
-  const randomId = Math.floor(Math.random() * 800) + 1;
+  const randomId = Math.floor(Math.random() * 151) + 1;
   const [pokemonName, setPokemonName] = useState(randomId);
 
   const getPokemon = (pokeNameOrId) => {

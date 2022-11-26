@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import {
   getPokemonApi,
   getPokemonSpecies,
@@ -7,6 +7,7 @@ import {
 } from "../utils/pokeApi.js";
 import PokemonCard from "./PokemonCard.jsx";
 import { PokeContext } from "../utils/pokeContext.js";
+import EvolutionCard from "./EvolutionCard.jsx";
 
 function Details() {
   function getSpecies(chain, ary) {
@@ -21,6 +22,7 @@ function Details() {
 
   const location = useLocation();
   const { pokemon, setPokemon } = useContext(PokeContext);
+  const [pokemonNames, setPokemonNames] = useState([]);
 
   useEffect(() => {
     console.log("pokemon: ", pokemon);
@@ -32,13 +34,17 @@ function Details() {
         const speciesUrl = res.data.species.url;
         console.log("speciesUrl: ", speciesUrl);
         setPokemon({
-          name: res.data.forms[0].name,
+          name:
+            res.data.forms[0].name.charAt(0).toUpperCase() +
+            res.data.forms[0].name.slice(1),
           id: res.data.id,
           img: res.data.sprites.other.dream_world.front_default,
           hp: res.data.stats[0].base_stat,
           attack: res.data.stats[1].base_stat,
           defense: res.data.stats[2].base_stat,
-          type: res.data.types[0].type.name,
+          type:
+            res.data.types[0].type.name.charAt(0).toUpperCase() +
+            res.data.types[0].type.name.slice(1),
         });
         return getPokemonSpecies(speciesUrl);
       })
@@ -49,13 +55,30 @@ function Details() {
         return getPokemonEvolutions(evolutionChainUrl);
       })
       .then((evolutions) => {
-        let pokemonNames = getSpecies(evolutions.data.chain, []);
-        console.log("pokemonNames: ", pokemonNames);
+        const pokemonNames = getSpecies(evolutions.data.chain, []);
+        // console.log("pokemon.name: ", pokemon.name);
+        setPokemonNames(pokemonNames);
+        console.log("pokemonNames: ", getSpecies(evolutions.data.chain, []));
         console.log("getPokemonEvolutions evolutions", evolutions);
       });
+
+    // console.log("OUTSIDE pokemon.name: ", pokemon.name);
   }, []);
 
-  return <PokemonCard></PokemonCard>;
+  return (
+    <>
+      <PokemonCard></PokemonCard>
+      {pokemonNames.map((name, index) =>
+        pokemon.name.toUpperCase() !== name.toUpperCase() ? (
+          <EvolutionCard
+            className="flex w-full"
+            key={index}
+            pokemonName={name}
+          ></EvolutionCard>
+        ) : null
+      )}
+    </>
+  );
 }
 
 export default Details;

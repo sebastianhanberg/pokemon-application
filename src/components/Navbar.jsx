@@ -1,11 +1,10 @@
 import React from "react";
 import PokemonLogo from "../assets/pokemonlogo.png";
-import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar";
 function Navbar() {
   const location = useLocation();
-  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
     <div className="flex flex-col lg:flex-row pt-10 sm:justify-center items-center lg:justify-between lg:pl-20">
       <div>
