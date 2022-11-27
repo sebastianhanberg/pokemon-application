@@ -9,24 +9,33 @@ function SearchBar() {
 
   const randomId = Math.floor(Math.random() * 151) + 1;
   const [pokemonName, setPokemonName] = useState(randomId);
+  const [error, setError] = useState(null);
 
   const getPokemon = (pokeNameOrId) => {
     console.log("searchPokemon: ", pokeNameOrId);
-    getPokemonApi(pokeNameOrId).then((res) => {
-      setPokemon({
-        name:
-          res.data.forms[0].name.charAt(0).toUpperCase() +
-          res.data.forms[0].name.slice(1),
-        id: res.data.id,
-        img: res.data.sprites.other.dream_world.front_default,
-        hp: res.data.stats[0].base_stat,
-        attack: res.data.stats[1].base_stat,
-        defense: res.data.stats[2].base_stat,
-        type:
-          res.data.types[0].type.name.charAt(0).toUpperCase() +
-          res.data.types[0].type.name.slice(1),
+    getPokemonApi(pokeNameOrId)
+      .then((res) => {
+        if (res.ok) {
+          throw Error("Can't find any Pokémon by that name.. Try again.");
+        }
+        setPokemon({
+          name:
+            res.data.forms[0].name.charAt(0).toUpperCase() +
+            res.data.forms[0].name.slice(1),
+          id: res.data.id,
+          img: res.data.sprites.other.dream_world.front_default,
+          hp: res.data.stats[0].base_stat,
+          attack: res.data.stats[1].base_stat,
+          defense: res.data.stats[2].base_stat,
+          type:
+            res.data.types[0].type.name.charAt(0).toUpperCase() +
+            res.data.types[0].type.name.slice(1),
+        });
+        setError(null);
+      })
+      .catch((err) => {
+        setError(err.message);
       });
-    });
   };
   useEffect(() => {
     getPokemon(randomId);
@@ -61,6 +70,15 @@ function SearchBar() {
           </div>
         </form>
       </div>
+
+      {error && (
+        <div
+          className="text-sm text-left text-red-600 bg-red-200 bg-opacity-60 border border-red-400 h-12 flex items-center p-4 rounded-md mb-30"
+          role="alert"
+        >
+          Can't find any Pokémon by that name.. Try again.
+        </div>
+      )}
     </div>
   );
 }

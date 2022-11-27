@@ -16,6 +16,8 @@ module.exports = {
       'gray-light': '#ececec',
       'gray-superlight': '#f5f5f5',
       'orange': '#fe9441',
+      'red-400': '#A92929',
+      'red-200': '#D33333',
     },
     fontFamily: {
       sans: ['Dosis', 'sans-serif'],
