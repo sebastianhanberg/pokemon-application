@@ -4,7 +4,7 @@ import {
   getPokemonApi,
   getPokemonSpecies,
   getPokemonEvolutions,
-} from "../utils/pokeApi.js";
+} from "../api/pokeApi.js";
 import PokemonCard from "./PokemonCard.jsx";
 import { PokeContext } from "../utils/pokeContext.js";
 import EvolutionCard from "./EvolutionCard.jsx";
@@ -25,14 +25,12 @@ function Details() {
   const [pokemonNames, setPokemonNames] = useState([]);
 
   useEffect(() => {
-    console.log("pokemon: ", pokemon);
     const id = location.pathname.split("/")[2];
-    console.log("id: ", id);
+
     getPokemonApi(id)
       .then((res) => {
-        console.log("getPokemonApi res: ", res);
         const speciesUrl = res.data.species.url;
-        console.log("speciesUrl: ", speciesUrl);
+
         setPokemon({
           name:
             res.data.forms[0].name.charAt(0).toUpperCase() +
@@ -49,20 +47,15 @@ function Details() {
         return getPokemonSpecies(speciesUrl);
       })
       .then((res) => {
-        console.log("getPokemonSpecies res: ", res);
         const evolutionChainUrl = res.data.evolution_chain.url;
-        console.log("evolutionChainUrl: ", evolutionChainUrl);
+
         return getPokemonEvolutions(evolutionChainUrl);
       })
       .then((evolutions) => {
         const pokemonNames = getSpecies(evolutions.data.chain, []);
-        // console.log("pokemon.name: ", pokemon.name);
-        setPokemonNames(pokemonNames);
-        console.log("pokemonNames: ", getSpecies(evolutions.data.chain, []));
-        console.log("getPokemonEvolutions evolutions", evolutions);
-      });
 
-    // console.log("OUTSIDE pokemon.name: ", pokemon.name);
+        setPokemonNames(pokemonNames);
+      });
   }, []);
 
   return (
@@ -72,7 +65,7 @@ function Details() {
       </div>
       <div>
         <h1 className="flex justify-center items-center text-3xl text-gray-dark drop-shadow-md font-bold mt-10">
-          Evolution chain
+          {pokemon && pokemon.name}s Evolution chain
         </h1>
       </div>
       <div className="flex lg:flex-row flex-row">

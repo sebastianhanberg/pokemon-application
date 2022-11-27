@@ -1,13 +1,11 @@
 import React from "react";
-import { getPokemonApi } from "../utils/pokeApi.js";
+import { getPokemonApi } from "../api/pokeApi.js";
 import { useEffect, useState } from "react";
 
-function EvolutionCard({ pokemonName, id }) {
+function EvolutionCard({ pokemonName }) {
   const [pokemon, setPokemon] = useState({});
   useEffect(() => {
-    console.log("hi from evocard name: ", pokemonName);
     getPokemonApi(pokemonName).then((pokemon) => {
-      console.log("evopokemon: ", pokemon);
       setPokemon({
         name:
           pokemon.data.forms[0].name.charAt(0).toUpperCase() +
