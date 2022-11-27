@@ -11,14 +11,3 @@ export function getPokemonSpecies(url) {
 export function getPokemonEvolutions(url) {
     return axios.get(url);
 }
-// export default function pokeApi() {
-//     const getPokemon = (pokeNameOrId) => {
-        
-//         console.log('searchPokemon: ', pokeNameOrId);
-//         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeNameOrId}`)
-        
-//     }
-//   return (
-//     <div>pokeApi</div>
-//   )
-// }
