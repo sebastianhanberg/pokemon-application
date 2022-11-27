@@ -11,3 +11,8 @@ export function getPokemonSpecies(url) {
 export function getPokemonEvolutions(url) {
     return axios.get(url);
 }
+
+export function getRandomsPokemonApi(limit) {
+    return axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}`);
+}
+

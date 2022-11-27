@@ -5,7 +5,7 @@ import { PokeContext } from "../utils/pokeContext";
 import { Link } from "react-router-dom";
 import { GoArrowRight } from "react-icons/go";
 
-function PokemonCard() {
+function PokemonCard({}) {
   const { pokemon } = useContext(PokeContext);
 
   const location = useLocation();

@@ -13,11 +13,11 @@ function Navbar() {
           <img className="w-[80px] lg:w-[180px]" src={PokemonLogo} alt="" />
         </a>
       </div>
-      <div className="flex flex-col lg:flex-col justify-center items-center lg:items-start lg:justify-between lg:mr-20 lg:mt-10">
+      <div className="flex flex-col lg:flex-col justify-center items-center lg:items-start lg:justify-between lg:mr-20 mt-5 lg:mt-10">
+        {!location.pathname.includes("details") && <SearchBar />}
         <a className="pb-4" href="/">
           <img className="w-24 lg:w-20" src={pokeball} alt="" />
         </a>
-        {!location.pathname.includes("details") && <SearchBar />}
       </div>
     </div>
   );
