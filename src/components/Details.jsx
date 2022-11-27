@@ -70,9 +70,11 @@ function Details() {
       <div className="w-full">
         <PokemonCard />
       </div>
-      <h1 className="flex justify-center items-center text-3xl text-gray-dark drop-shadow-md font-bold mt-10">
-        Evolution chain
-      </h1>
+      <div>
+        <h1 className="flex justify-center items-center text-3xl text-gray-dark drop-shadow-md font-bold mt-10">
+          Evolution chain
+        </h1>
+      </div>
       <div className="flex lg:flex-row flex-row">
         {pokemonNames.map((name, index) =>
           pokemon.name.toUpperCase() !== name.toUpperCase() ? (
