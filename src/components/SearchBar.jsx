@@ -73,7 +73,7 @@ function SearchBar() {
 
       {error && (
         <div
-          className="text-sm text-left text-red-600 bg-red-200 bg-opacity-60 border border-red-400 h-12 flex items-center p-4 rounded-md mb-30"
+          className="text-sm text-left text-gray-dark bg-red-400 bg-opacity-20 border border-red-400 h-12 flex items-center p-4 rounded-md mb-30"
           role="alert"
         >
           Can't find any Pokémon by that name.. Try again.
