@@ -27,5 +27,6 @@ ADD IN THE FUTURE
 
 --
 
+- Fetch like 4-5 random Pokémons insted of just 1, so the user is able to choose by him/herself.
 - Show more stats on every Pokémon.
 - Show color/and or icons in card-UI depending on Type (ex. Elecric = yellow or a bolt icon.)
