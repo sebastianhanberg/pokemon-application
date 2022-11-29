@@ -16,7 +16,7 @@ function Navbar() {
       <div className="flex flex-col lg:flex-col justify-center items-center lg:items-start lg:justify-between lg:mr-20 mt-5 lg:mt-10">
         {!location.pathname.includes("details") && <SearchBar />}
         <a className="mt-4 mb-10" href="/">
-          <img className="md:w-24 lg:w-28" src={pokeball} alt="" />
+          <img className="w-24 lg:w-28" src={pokeball} alt="" />
         </a>
       </div>
     </div>
